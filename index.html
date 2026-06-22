@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Um Convite Especial - Pedro Miguel</title>
+    <style>
+        * { box-sizing: border-box; }
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            font-family: 'Times New Roman', Times, serif;
+            background: radial-gradient(circle at center, #ffffff 0%, #e6effa 100%);
+            color: #2c3e50; overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Moldura Dourada de Luxo */
+        .gold-border {
+            position: absolute; top: 15px; left: 15px; right: 15px; bottom: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 8px; pointer-events: none; z-index: 10;
+        }
+
+        .overlay {
+            position: relative; z-index: 2; width: 100%; height: 100%;
+            display: flex; flex-direction: column; justify-content: space-between;
+            align-items: center; padding: 40px 24px; text-align: center;
+        }
+
+        /* Ecrã de Boas-Vindas */
+        .welcome-screen {
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            height: 100%; gap: 20px; z-index: 5;
+        }
+        .welcome-title {
+            font-size: 14px; letter-spacing: 5px; text-transform: uppercase; color: #b39243; font-weight: bold;
+        }
+        .welcome-heading {
+            font-size: 28px; font-weight: 300; color: #1a365d; margin: 10px 0;
+        }
+        .welcome-sub {
+            font-size: 14px; font-style: italic; color: #7f8c8d; max-width: 260px; line-height: 1.6;
+        }
+
+        /* Carrossel de Fotos Emocionais ao Fundo */
+        .photo-background {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1; opacity: 0; transition: opacity 1.5s ease-in-out;
+            background-size: cover; background-position: center;
+        }
+        .photo-background.active { opacity: 0.18; } /* Opacidade suave para não atrapalhar a leitura */
+
+        .main-content { max-width: 340px; width: 100%; margin: auto 0; z-index: 3; display: none; }
+        
+        /* Balão de Texto do Bebé (Vidro Fosco Infantil) */
+        .story-box {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            padding: 30px 22px; width: 100%; border-radius: 16px;
+            font-size: 17px; line-height: 2.2; font-style: italic; color: #2c3e50;
+            box-shadow: 0 10px 30px rgba(179, 211, 234, 0.3);
+            min-height: 220px; display: flex; align-items: center; justify-content: center;
+            transition: opacity 0.8s ease;
+        }
+
+        /* Botões Estilo Realeza */
+        .btn-gold {
+            background: linear-gradient(135deg, #dfba6b 0%, #b39243 100%);
+            color: #ffffff; border: none; padding: 16px 35px;
+            font-size: 11px; letter-spacing: 3px; text-transform: uppercase; cursor: pointer;
+            border-radius: 30px; transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(179, 146, 67, 0.3);
+        }
+        .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(179, 146, 67, 0.4); }
+
+        .logo-p {
+            font-size: 32px; color: #b39243; font-family: 'Times New Roman', serif;
+            border: 1px solid #b39243; width: 60px; height: 60px; display: flex;
+            align-items: center; justify-content: center; border-radius: 50%; margin-bottom: 10px;
+            background: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Música de Embalar Infantil Terapêutica (Caixa de Música) -->
+    <audio id="kids-audio" loop>
+        <source src="https://assets.mixkit.co/active_storage/sfx/1993/1993-84.wav" type="audio/wav">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="gold-border"></div>
+
+    <!-- Fotos de fundo que mudam com a história -->
+    <div id="bg-photo-1" class="photo-background active" style="background-image: url('https://images.unsplash.com/photo-1519689680058-324335c77ebd?q=80&w=600');"></div>
+    <div id="bg-photo-2" class="photo-background" style="background-image: url('https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?q=80&w=600');"></div>
+    <div id="bg-photo-3" class="photo-background" style="background-image: url('https://images.unsplash.com/photo-1555252333-9f8e92e65df9?q=80&w=600');"></div>
+    <div id="bg-photo-4" class="photo-background" style="background-image: url('https://images.unsplash.com/photo-1442458370899-ae20e367c5d8?q=80&w=600');"></div>
+
+    <div class="overlay">
+        
+        <!-- Ecrã de Entrada -->
+        <div id="welcome-area" class="welcome-screen">
+            <div class="logo-p">P</div>
+            <div class="welcome-title">Moulage Atelier</div>
+            <h2 class="welcome-heading">Olá, Padrinho Rui!</h2>
+            <p class="welcome-sub">O Pedro Miguel preparou uma surpresa mágica no interior desta chama. Está pronto para abrir?</p>
+            <button class="btn-gold" onclick="abrirConvite()">Abrir o Convite</button>
+        </div>
+
+        <!-- Ecrã da História Dinâmica -->
+        <div id="content-area" class="main-content">
+            <div id="story-text" class="story-box">
+                A carregar as minhas primeiras memórias...
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const frasesPedro = [
+            "Oi Padrinho Rui Pinto! Estou tão feliz por você ter sido o escolhido para esta missão tão especial na minha vida. Eu e os meus pais estamos com o coração cheio de amor e gratidão.",
+            "Eu já estou empolgado para crescer logo, aprender a andar e corrermos juntos para muitas brincadeiras! Sei que ao teu lado vou aprender coisas incríveis.",
+            "O meu batizado vai ser no dia 21-08-2026 e eu te espero lá com o teu melhor abraço! Acenda esta velinha linda para aquecer o seu coração e guarde este potinho com todo o carinho como recordação.",
+            "Nos vemos em breve, Padrinho! Mas olha... se a saudade apertar, pode passar lá em casa antes para me dar um beijinho bem gostoso! <br><br><strong>Com amor, Pedro Miguel.</strong>"
+        ];
+
+        let indiceEtapa = 0;
+        let timerFotos = null;
+
+        function abrirConvite() {
+            // Inicia a caixinha de música de fundo
+            const musica = document.getElementById('kids-audio');
+            musica.volume = 0.4;
+            musica.play().catch(e => console.log("Áudio ativado"));
+
+            // Transição de ecrãs
+            document.getElementById('welcome-area').style.display = "none";
+            document.getElementById('content-area').style.display = "block";
+            
+            fluxoConto();
+        }
+
+        function fluxoConto() {
+            const display = document.getElementById('story-text');
+            
+            if (indiceEtapa < frasesPedro.length) {
+                display.style.opacity = 0;
+                mudarFotoFundo(indiceEtapa + 1);
+                
+                setTimeout(() => {
+                    display.innerHTML = frasesPedro[indiceEtapa];
+                    display.style.opacity = 1;
+                    indiceEtapa++;
+                    // Cada parte da carta fica 10 segundos para o padrinho ler com emoção
+                    timerFotos = setTimeout(fluxoConto, 10500);
+                }, 800);
+            }
+        }
+
+        function mudarFotoFundo(numeroFoto) {
+            // Remove a classe ativa de todas as fotos
+            document.querySelectorAll('.photo-background').forEach(el => el.classList.remove('active'));
+            // Adiciona à foto atual
+            const fotoAlvo = document.getElementById(`bg-photo-${numeroFoto}`);
+            if (fotoAlvo) fotoAlvo.classList.add('active');
+        }
+    </script>
+</body>
+</html>
