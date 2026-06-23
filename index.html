@@ -134,11 +134,11 @@
             color: #8fa88f;
         }
 
-        /* --- OVERLAY DE VÍDEO --- */
+        /* --- OVERLAY DE VÍDEO FORMATO TIKTOK (SUPREMO IMERSIVO) --- */
         .video-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.95);
+            background: #000; /* Fundo preto absoluto */
             display: flex; flex-direction: column;
             justify-content: center; align-items: center;
             z-index: 2000; opacity: 0; pointer-events: none;
@@ -151,42 +151,52 @@
         }
 
         .video-wrapper {
-            width: 90%;
-            max-width: 380px;
-            background: #0b120b;
-            border: 1px solid #d4af37;
-            border-radius: 16px;
+            width: 100%;
+            height: 100%;
+            max-width: 430px; /* Alinhado com o tamanho do telemóvel simulado */
+            background: #000;
             overflow: hidden;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.8);
             position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .video-player {
             width: 100%;
+            height: 100%;
             display: block;
-            object-fit: cover;
+            object-fit: cover; /* Faz o vídeo preencher o ecrã vertical como no TikTok */
         }
 
+        /* Elementos sobrepostos ao estilo TikTok */
         .video-caption {
-            padding: 20px;
-            text-align: center;
-            background: #0b120b;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85)); /* Sombra suave para o texto ler bem */
+            text-align: left;
+            z-index: 2100;
         }
 
         .video-caption h3 {
-            font-size: 20px;
+            font-size: 24px;
             color: #fff;
-            margin-bottom: 8px;
+            margin-bottom: 15px;
             letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
         }
 
         .btn-close-video {
             background: linear-gradient(135deg, #d4af37 0%, #aa8421 100%);
             border: none; color: #050705;
-            padding: 12px 25px; border-radius: 8px;
-            font-weight: bold; width: 100%; margin-top: 15px;
+            padding: 14px 25px; border-radius: 8px;
+            font-weight: bold; width: 100%;
             text-transform: uppercase; font-size: 13px; letter-spacing: 2px;
             cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
         }
 
         footer {
@@ -301,7 +311,7 @@
             let playPromise = video.play();
             if (playPromise !== undefined) {
                 playPromise.catch(error => {
-                    console.log("A aguardar interação do utilizador.");
+                    console.log("A aguardar interação.");
                 });
             }
         }
