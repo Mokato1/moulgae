@@ -15,7 +15,7 @@
         }
 
         body {
-            background-color: #050705; /* Fundo quase preto com toque esverdeado */
+            background-color: #050705;
             color: #f4ebd9;
             display: flex;
             justify-content: center;
@@ -27,7 +27,7 @@
             width: 100%;
             max-width: 430px;
             min-height: 100vh;
-            background: linear-gradient(180deg, #0b120b 0%, #050705 100%); /* Gradiente Verde Musgo Escuro para Preto */
+            background: linear-gradient(180deg, #0b120b 0%, #050705 100%);
             padding: 20px;
             display: flex;
             flex-direction: column;
@@ -134,7 +134,7 @@
             color: #8fa88f;
         }
 
-        /* --- OVERLAY DE VÍDEO (SUPREMO WOW) --- */
+        /* --- OVERLAY DE VÍDEO --- */
         .video-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -209,70 +209,67 @@
             <div class="sub-logo">Menu Interativo Gourmet</div>
         </header>
 
-        <!-- SELEÇÃO DE PIZZAS -->
         <div class="section-title">Pizzas Artesanais</div>
 
-        <div class="menu-item" onclick="abrirVideo('Pizza Marguerita', 'https://pixabay.com/pt/videos/download/video-123629_medium.mp4')">
+        <div class="menu-item" onclick="abrirVideo('Pizza Marguerita', 'videos/marguerita.mp4')">
             <div class="item-info">
                 <h4>Pizza Marguerita <span class="icon-play">Ver Vídeo</span></h4>
                 <p>Molho de tomate artesanal, mozzarella fresca, manjericão e azeite.</p>
             </div>
         </div>
 
-        <div class="menu-item" onclick="abrirVideo('Pizza Polaneta', 'https://pixabay.com/pt/videos/download/video-136431_medium.mp4')">
+        <div class="menu-item" onclick="abrirVideo('Pizza Quatro Queijos', 'videos/queijo.mp4')">
             <div class="item-info">
-                <h4>Pizza Polaneta <span class="icon-play">Ver Vídeo</span></h4>
-                <p>Combinação exclusiva de queijos cremosos e receita da casa.</p>
+                <h4>Pizza Quatro Queijos <span class="icon-play">Ver Vídeo</span></h4>
+                <p>Combinação exclusiva de queijos cremosos e receita especial da casa.</p>
             </div>
         </div>
 
-        <div class="menu-item" onclick="abrirVideo('Pizza Atum Spicy', 'https://pixabay.com/pt/videos/download/video-80139_medium.mp4')">
+        <div class="menu-item" onclick="abrirVideo('Pizza Vegana', 'videos/vegana.mp4')">
             <div class="item-info">
-                <h4>Pizza Atum Spicy <span class="icon-play">Ver Vídeo</span></h4>
-                <p>Atum premium, cebola roxa, toque de malagueta e azeitonas pretas.</p>
+                <h4>Pizza Vegana <span class="icon-play">Ver Vídeo</span></h4>
+                <p>Ingredientes frescos selecionados da horta e base 100% vegetal.</p>
             </div>
         </div>
 
-        <div class="menu-item" onclick="abrirVideo('Pizza Calabresa', 'https://pixabay.com/pt/videos/download/video-353257_medium.mp4')">
+        <div class="menu-item" onclick="abrirVideo('Pizza Calabresa', 'videos/calabreza.mp4')">
             <div class="item-info">
                 <h4>Pizza Calabresa <span class="icon-play">Ver Vídeo</span></h4>
                 <p>Chouriço calabresa selecionado, cebola estufada e orégãos.</p>
             </div>
         </div>
 
-        <!-- SELEÇÃO DE CALDOS -->
         <div class="section-title">Caldos Conforto</div>
 
-        <div class="menu-item" onclick="abrirVideo('Caldo Verde', 'https://pixabay.com/pt/videos/download/video-84899_medium.mp4')">
+        <div class="menu-item" onclick="abrirVideo('Caldo Verde', 'videos/queijo.mp4')">
             <div class="item-info">
                 <h4>Caldo Verde <span class="icon-play">Ver Vídeo</span></h4>
                 <p>Tradicional português com chouriço artesanal e couve cortada fina.</p>
             </div>
         </div>
 
-        <div class="menu-item" onclick="abrirVideo('Caldo de Milho', 'https://pixabay.com/pt/videos/download/video-84899_medium.mp4')">
+        <div class="menu-item" onclick="abrirVideo('Caldo de Milho', 'videos/marguerita.mp4')">
             <div class="item-info">
                 <h4>Caldo de Milho <span class="icon-play">Ver Vídeo</span></h4>
-                <p>Cremoso caldo de milho dourado com pedaços de frango ou bacon.</p>
+                <p>Cremoso caldo de milho dourado servido quente.</p>
             </div>
         </div>
 
-        <!-- SELEÇÃO DE BEBIDAS -->
         <div class="section-title">Bebidas & Sumos</div>
 
-        <div class="menu-item" onclick="abrirVideo('Água Mineral', 'https://pixabay.com/pt/videos/download/video-123629_medium.mp4')">
+        <div class="menu-item" onclick="abrirVideo('Água Mineral', 'videos/vegana.mp4')">
             <div class="item-info"><h4>Água</h4><p>Fresco elemento natural.</p></div>
         </div>
-        <div class="menu-item" onclick="abrirVideo('Coca-Cola', 'https://pixabay.com/pt/videos/download/video-136431_medium.mp4')">
+        <div class="menu-item" onclick="abrirVideo('Coca-Cola', 'videos/calabreza.mp4')">
             <div class="item-info"><h4>Coca-Cola</h4><p>O clássico refrescante.</p></div>
         </div>
-        <div class="menu-item" onclick="abrirVideo('Guaraná', 'https://pixabay.com/pt/videos/download/video-80139_medium.mp4')">
+        <div class="menu-item" onclick="abrirVideo('Guaraná', 'videos/queijo.mp4')">
             <div class="item-info"><h4>Guaraná</h4><p>Sabor tropical vibrante.</p></div>
         </div>
-        <div class="menu-item" onclick="abrirVideo('Sumo Natural', 'https://pixabay.com/pt/videos/download/video-353257_medium.mp4')">
+        <div class="menu-item" onclick="abrirVideo('Sumo Natural', 'videos/vegana.mp4')">
             <div class="item-info"><h4>Sumo</h4><p>Fruta selecionada espremida na hora.</p></div>
         </div>
-        <div class="menu-item" onclick="abrirVideo('Fanta', 'https://pixabay.com/pt/videos/download/video-84899_medium.mp4')">
+        <div class="menu-item" onclick="abrirVideo('Fanta', 'videos/calabreza.mp4')">
             <div class="item-info"><h4>Fanta</h4><p>Delicioso sabor a laranja.</p></div>
         </div>
 
@@ -281,10 +278,8 @@
         </footer>
     </div>
 
-    <!-- TELA DE PLAYER DE VÍDEO COMPLETA (EFEITO WOW SUPREMO) -->
     <div class="video-overlay" id="videoOverlay">
         <div class="video-wrapper">
-            <!-- Vídeo em autoplay, mudo para navegadores mobiles aceitarem, e em loop continuo -->
             <video class="video-player" id="mainVideo" loop muted playsinline autoplay></video>
             <div class="video-caption">
                 <h3 id="videoTitle">Nome do Produto</h3>
@@ -302,326 +297,18 @@
             title.innerText = nome;
             video.src = urlVideo;
             overlay.classList.add('active');
-            video.play(); // Dispara o vídeo
+            
+            let playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log("A aguardar interação do utilizador.");
+                });
+            }
         }
 
         function fecharVideo() {
-            video.pause(); // Pausa o vídeo para economizar dados
-            video.src = ""; // Limpa a fonte
-            overlay.classList.remove('active');
-        }
-    </script>
-</body>
-</html><!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>LAPIZZA - Menu Supremo</title>
-    <style>
-        /* --- ESTILOS GERAIS (Gourmet Dark) --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Playfair Display', 'Segoe UI', serif;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body {
-            background-color: #050705; /* Fundo quase preto com toque esverdeado */
-            color: #f4ebd9;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-        }
-
-        .phone-container {
-            width: 100%;
-            max-width: 430px;
-            min-height: 100vh;
-            background: linear-gradient(180deg, #0b120b 0%, #050705 100%); /* Gradiente Verde Musgo Escuro para Preto */
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            border-left: 1px solid #1a261a;
-            border-right: 1px solid #1a261a;
-            padding-bottom: 40px;
-        }
-
-        /* --- CABEÇALHO & LOGO --- */
-        header {
-            text-align: center;
-            margin: 25px 0 35px 0;
-            position: relative;
-        }
-
-        .logo-container {
-            border: 1px solid #d4af37;
-            display: inline-block;
-            padding: 10px 30px;
-            border-radius: 4px;
-            background: rgba(11, 18, 11, 0.6);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-        }
-
-        .logo-text {
-            font-size: 28px;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            background: linear-gradient(45deg, #b8902d, #f3e1b6, #b8902d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 900;
-        }
-
-        .sub-logo {
-            font-size: 10px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #8fa88f;
-            margin-top: 5px;
-        }
-
-        /* --- CATEGORIAS & ITENS --- */
-        .section-title {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #d4af37;
-            margin: 25px 0 15px 5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(212,175,55,0.4), transparent);
-        }
-
-        .menu-item {
-            background: linear-gradient(135deg, #0f1c0f 0%, #070d07 100%);
-            border: 1px solid #1e331e;
-            border-radius: 12px;
-            padding: 14px;
-            margin-bottom: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            transition: transform 0.2s, border-color 0.2s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-
-        .menu-item:active {
-            transform: scale(0.98);
-            border-color: #d4af37;
-        }
-
-        .item-info h4 {
-            font-size: 16px;
-            color: #fff;
-            font-weight: 600;
-            margin-bottom: 4px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .icon-play {
-            font-size: 11px;
-            color: #d4af37;
-            background: rgba(212,175,55,0.1);
-            padding: 3px 7px;
-            border-radius: 20px;
-            border: 1px solid rgba(212,175,55,0.3);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .item-info p {
-            font-size: 12px;
-            color: #8fa88f;
-        }
-
-        /* --- OVERLAY DE VÍDEO (SUPREMO WOW) --- */
-        .video-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            display: flex; flex-direction: column;
-            justify-content: center; align-items: center;
-            z-index: 2000; opacity: 0; pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .video-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .video-wrapper {
-            width: 90%;
-            max-width: 380px;
-            background: #0b120b;
-            border: 1px solid #d4af37;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.8);
-            position: relative;
-        }
-
-        .video-player {
-            width: 100%;
-            display: block;
-            object-fit: cover;
-        }
-
-        .video-caption {
-            padding: 20px;
-            text-align: center;
-            background: #0b120b;
-        }
-
-        .video-caption h3 {
-            font-size: 20px;
-            color: #fff;
-            margin-bottom: 8px;
-            letter-spacing: 1px;
-        }
-
-        .btn-close-video {
-            background: linear-gradient(135deg, #d4af37 0%, #aa8421 100%);
-            border: none; color: #050705;
-            padding: 12px 25px; border-radius: 8px;
-            font-weight: bold; width: 100%; margin-top: 15px;
-            text-transform: uppercase; font-size: 13px; letter-spacing: 2px;
-            cursor: pointer;
-        }
-
-        footer {
-            text-align: center;
-            font-size: 11px;
-            color: #435c43;
-            margin-top: auto;
-            padding-top: 30px;
-            letter-spacing: 2px;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="phone-container">
-        <header>
-            <div class="logo-container">
-                <div class="logo-text">LAPIZZA</div>
-            </div>
-            <div class="sub-logo">Menu Interativo Gourmet</div>
-        </header>
-
-        <!-- SELEÇÃO DE PIZZAS -->
-        <div class="section-title">Pizzas Artesanais</div>
-
-        <div class="menu-item" onclick="abrirVideo('Pizza Marguerita', 'https://pixabay.com/pt/videos/download/video-123629_medium.mp4')">
-            <div class="item-info">
-                <h4>Pizza Marguerita <span class="icon-play">Ver Vídeo</span></h4>
-                <p>Molho de tomate artesanal, mozzarella fresca, manjericão e azeite.</p>
-            </div>
-        </div>
-
-        <div class="menu-item" onclick="abrirVideo('Pizza Polaneta', 'https://pixabay.com/pt/videos/download/video-136431_medium.mp4')">
-            <div class="item-info">
-                <h4>Pizza Polaneta <span class="icon-play">Ver Vídeo</span></h4>
-                <p>Combinação exclusiva de queijos cremosos e receita da casa.</p>
-            </div>
-        </div>
-
-        <div class="menu-item" onclick="abrirVideo('Pizza Atum Spicy', 'https://pixabay.com/pt/videos/download/video-80139_medium.mp4')">
-            <div class="item-info">
-                <h4>Pizza Atum Spicy <span class="icon-play">Ver Vídeo</span></h4>
-                <p>Atum premium, cebola roxa, toque de malagueta e azeitonas pretas.</p>
-            </div>
-        </div>
-
-        <div class="menu-item" onclick="abrirVideo('Pizza Calabresa', 'https://pixabay.com/pt/videos/download/video-353257_medium.mp4')">
-            <div class="item-info">
-                <h4>Pizza Calabresa <span class="icon-play">Ver Vídeo</span></h4>
-                <p>Chouriço calabresa selecionado, cebola estufada e orégãos.</p>
-            </div>
-        </div>
-
-        <!-- SELEÇÃO DE CALDOS -->
-        <div class="section-title">Caldos Conforto</div>
-
-        <div class="menu-item" onclick="abrirVideo('Caldo Verde', 'https://pixabay.com/pt/videos/download/video-84899_medium.mp4')">
-            <div class="item-info">
-                <h4>Caldo Verde <span class="icon-play">Ver Vídeo</span></h4>
-                <p>Tradicional português com chouriço artesanal e couve cortada fina.</p>
-            </div>
-        </div>
-
-        <div class="menu-item" onclick="abrirVideo('Caldo de Milho', 'https://pixabay.com/pt/videos/download/video-84899_medium.mp4')">
-            <div class="item-info">
-                <h4>Caldo de Milho <span class="icon-play">Ver Vídeo</span></h4>
-                <p>Cremoso caldo de milho dourado com pedaços de frango ou bacon.</p>
-            </div>
-        </div>
-
-        <!-- SELEÇÃO DE BEBIDAS -->
-        <div class="section-title">Bebidas & Sumos</div>
-
-        <div class="menu-item" onclick="abrirVideo('Água Mineral', 'https://pixabay.com/pt/videos/download/video-123629_medium.mp4')">
-            <div class="item-info"><h4>Água</h4><p>Fresco elemento natural.</p></div>
-        </div>
-        <div class="menu-item" onclick="abrirVideo('Coca-Cola', 'https://pixabay.com/pt/videos/download/video-136431_medium.mp4')">
-            <div class="item-info"><h4>Coca-Cola</h4><p>O clássico refrescante.</p></div>
-        </div>
-        <div class="menu-item" onclick="abrirVideo('Guaraná', 'https://pixabay.com/pt/videos/download/video-80139_medium.mp4')">
-            <div class="item-info"><h4>Guaraná</h4><p>Sabor tropical vibrante.</p></div>
-        </div>
-        <div class="menu-item" onclick="abrirVideo('Sumo Natural', 'https://pixabay.com/pt/videos/download/video-353257_medium.mp4')">
-            <div class="item-info"><h4>Sumo</h4><p>Fruta selecionada espremida na hora.</p></div>
-        </div>
-        <div class="menu-item" onclick="abrirVideo('Fanta', 'https://pixabay.com/pt/videos/download/video-84899_medium.mp4')">
-            <div class="item-info"><h4>Fanta</h4><p>Delicioso sabor a laranja.</p></div>
-        </div>
-
-        <footer>
-            EXPERIÊNCIA EXCLUSIVA • LAPIZZA
-        </footer>
-    </div>
-
-    <!-- TELA DE PLAYER DE VÍDEO COMPLETA (EFEITO WOW SUPREMO) -->
-    <div class="video-overlay" id="videoOverlay">
-        <div class="video-wrapper">
-            <!-- Vídeo em autoplay, mudo para navegadores mobiles aceitarem, e em loop continuo -->
-            <video class="video-player" id="mainVideo" loop muted playsinline autoplay></video>
-            <div class="video-caption">
-                <h3 id="videoTitle">Nome do Produto</h3>
-                <button class="btn-close-video" onclick="fecharVideo()">Voltar ao Menu</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const overlay = document.getElementById('videoOverlay');
-        const video = document.getElementById('mainVideo');
-        const title = document.getElementById('videoTitle');
-
-        function abrirVideo(nome, urlVideo) {
-            title.innerText = nome;
-            video.src = urlVideo;
-            overlay.classList.add('active');
-            video.play(); // Dispara o vídeo
-        }
-
-        function fecharVideo() {
-            video.pause(); // Pausa o vídeo para economizar dados
-            video.src = ""; // Limpa a fonte
+            video.pause();
+            video.src = "";
             overlay.classList.remove('active');
         }
     </script>
