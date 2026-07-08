@@ -429,3 +429,459 @@
             line-height: 1.8;
             margin-bottom: 30px;
         }
+
+        .cta-section {
+            background: var(--sage);
+            color: var(--linen);
+            padding: 100px 24px;
+            text-align: center;
+        }
+        .cta-container { max-width: 500px; margin: 0 auto; }
+        .cta-section h2 { font-size: 36px; margin-bottom: 16px; }
+        .cta-buttons { display: flex; flex-direction: column; gap: 16px; align-items: center; }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--linen);
+            border: 1px solid rgba(248, 245, 240, 0.4);
+            padding: 18px 32px;
+            font-family: var(--font-sans);
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-decoration: none;
+            width: 100%;
+            max-width: 320px;
+            transition: all 0.3s ease;
+        }
+
+        footer {
+            background: var(--emerald);
+            color: var(--linen);
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title { font-size: 72px; }
+            .ritual-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
+            .cta-buttons { flex-direction: row; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="audio-player" loop>
+        <source src="./musica1.mp3" type="audio/mpeg">
+    </audio>
+
+    <section class="hero-section" id="hero-block">
+        <video class="hero-media" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=640">
+            <source src="https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c054ba274bb81c32273bcaf39f400782&profile_id=165&oauth2_token_id=57447761" type="video/mp4">
+        </video>
+        <div class="hero-texture"></div>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <div class="brand-container">
+                <div class="brand-logo">Moulage Parfums</div>
+                <div class="brand-sub">Arte Olfativa</div>
+            </div>
+            
+            <h1 class="hero-title">SALITRE</h1>
+            <h2 class="hero-subtitle">Coleção MARÉ - Edição 001/200</h2>
+            <div class="hero-line"></div>
+            <p class="hero-text">Onde o sol encontra o sal.</p>
+            
+            <button class="btn-premium" onclick="activateRitual()">
+                <span style="margin-right: 10px; font-size: 8px;">▶</span> Ativar Ritual 1:20 min
+            </button>
+        </div>
+    </section>
+
+    <section class="player-section" id="player-block">
+        <video class="player-bg" id="player-video" muted loop playsinline></video>
+        <img class="player-bg" id="player-img1" src="" alt="Ritual Atmosphere">
+        <img class="player-bg" id="player-img2" src="" alt="Ritual Space">
+        
+        <div class="hero-overlay" style="opacity: 0.65;"></div>
+
+        <div class="player-content">
+            <div class="pulse-container">
+                <div class="pulse-circle animating"></div>
+                <div class="pulse-core"></div>
+            </div>
+            <div class="player-timer" id="timer-display">01:20</div>
+            
+            <div class="ritual-text-container">
+                <p class="ritual-message" id="message-display"></p>
+            </div>
+            
+            <button class="btn-pause-ritual" id="pause-btn" onclick="togglePlayback()">Pausar</button>
+        </div>
+    </section>
+
+    <div class="modal-overlay" id="end-modal">
+        <div class="modal-box">
+            <h3>Ritual Concluído.</h3>
+            <p id="closing-message-display"></p>
+            <button class="btn-premium" onclick="returnToHome()">Voltar ao Presente</button>
+        </div>
+    </div>
+
+    <section class="ritual-section reveal">
+        <h2>O Ritual SALITRE</h2>
+        <div class="ritual-grid">
+            <div class="ritual-card">
+                <div class="ritual-num">01</div>
+                <div class="ritual-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=500" alt="Wax melt">
+                </div>
+                <p><strong>Acenda.</strong> Coloque um cubo de SALITRE no teu difusor. A base é sal marinho e madeira flutuante.</p>
+            </div>
+            <div class="ritual-card">
+                <div class="ritual-num">02</div>
+                <div class="ritual-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=500" alt="Linho">
+                </div>
+                <p><strong>Envolva.</strong> Borrife o lençol com água. O aroma adere ao tecido e dura a noite toda.</p>
+            </div>
+            <div class="ritual-card">
+                <div class="ritual-num">03</div>
+                <div class="ritual-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=500" alt="Vinho">
+                </div>
+                <p><strong>Desligue.</strong> 8 minutos para si. O resto da casa pode esperar.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="secret-section reveal">
+        <div class="secret-container">
+            <h3 class="secret-title">Segredo 001/200</h3>
+            <p class="secret-text">
+                "SALITRE nasceu de uma memória: a casa da minha avó em Vila Nova de Milfontes. O chão era de madeira e cheirava a mar. O segredo da fórmula é a flor de sal do Algarve. Obrigado por fazeres parte do começo."
+            </p>
+            <span class="secret-signature">Moulage Parfums</span>
+        </div>
+    </section>
+
+    <section class="cta-section reveal">
+        <div class="cta-container">
+            <h2>A Maré acaba.</h2>
+            <p>A edição MARÉ é limited. Garante a tua reposição antes que esgote.</p>
+            <div class="cta-buttons">
+                <a href="https://moulageparfums.pt/repor?colecao=mare&cheiro=salitre&utm=nfc" class="btn-premium" target="_blank">Repor SALITRE com 10%</a>
+                <a href="/mare" class="btn-secondary">Descobrir toda a Coleção</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="brand-logo" style="color: var(--champagne);">Moulage Parfums</div>
+        <div class="brand-sub" style="color: var(--linen); opacity: 0.6;">Arte Olfativa</div>
+    </footer>
+
+    <script>
+        // --- BASE DE DADOS DE RITUAIS (10 RITUAIS x 10 FRASES = 100 FRASES EXCLUSIVAS) ---
+        const ritualsData = [
+            [
+                "Inspira profundamente. O aroma a salitre começa a tomar conta do espaço.",
+                "Deixa que a frescura do mar limpe os ruídos do teu dia de trabalho.",
+                "Sente o calor suave do difusor a libertar as primeiras notas marítimas.",
+                "Não há e-mails para responder nos próximos segundos. Só tu e o mar.",
+                "Imaginas as ondas a rebentar calmamente na costa da Comporta?",
+                "O aroma adensa-se. A madeira flutuante brings estabilidade ao momento.",
+                "Relaxa os ombros. Deixa que a brisa invisível faça o trabalho pesado.",
+                "Estás a criar uma memória olfativa premium. Saboreia-a.",
+                "O world lá fora continua a girar, mas tu escolheste parar aqui.",
+                "Prepara-te para regressar. O teu espaço está completamente renovado."
+            ],
+            [
+                "O ritual começou. Desliga o piloto automático por um breve instante.",
+                "O sal do Algarve funde-se com o calor. Sente a pureza da brisa.",
+                "Feche os olhos por três segundos. Escuta o silêncio por trás da música.",
+                "Cada molécula de cera libertada é um convite para desacelerar.",
+                "Estás no Alentejo, o sol está a pôr-se e a areia ainda está quente.",
+                "Acalma o ritmo da tua respiração. Acompanha o compasso do som.",
+                "Este momento é um luxo que te ofereces. Nada é mais importante agora.",
+                "Sente a frescura salina a purificar a energia em teu redor.",
+                "O aroma a maresia cura o cansaço que a mente acumulou hoje.",
+                "O teu templo pessoal está pronto. Leva este foco contigo."
+            ],
+            [
+                "Bem-vindo à tua pausa editorial. O design do momento é teu.",
+                "O wax melt derrete lentamente, tal como as tuas preocupações atuais.",
+                "Uma lufada de ar fresco entra pela divisão. É a coleção MARÉ.",
+                "Visualiza a imensidão do oceano Atlântico. Tu és livre como ele.",
+                "Deixa que a envolvência da madeira flutuante te abrace o espírito.",
+                "Nada de pressas. O tempo aqui foi desenhado à tua medida.",
+                "Sente a textura do linho imaginário na tua pele. Conforto puro.",
+                "A harmonia perfeita entre o sol e o sal acontece agora na tua sala.",
+                "Faltam poucos passos para concluíres este alinhamento interior.",
+                "Abraça a calmaria. O teu dia ganhou uma nova perspetiva premium."
+            ],
+            [
+                "Inicia o desapego do mundo digital. Foca-te no teu sentido olfativo.",
+                "O aroma a SALITRE evoca sofisticação minimalista. Sente-a.",
+                "Deixa a mente flutuar como um pedaço de madeira no mar calmo.",
+                "Respira a autenticidade de um produto feito artesanalmente para ti.",
+                "As notas de topo abraçam o espaço. Um toque selvagem e luxuoso.",
+                "Permite-te não produzir nada nestes minutos. Apenas existir.",
+                "A energia da costa portuguesa preenche cada canto da tua casa.",
+                "O aroma acalma os pensamentos mais agitados. Confia no ritual.",
+                "A maré está cheia de serenidade. Sente a subida gradual da paz.",
+                "Ritual fixado com sucesso. O teu ambiente mudou de nível."
+            ],
+            [
+                "Primeiro passo: liberta toda a tensão do teu maxilar.",
+                "A Moulage Parfums trouxe o oceano até à tua mesa de cabeceira.",
+                "A simplicidade é o último grau da sofisticação. Sente este aroma.",
+                "As ondas invisíveis quebram suavemente contra o teu stress diário.",
+                "A flor de sal traz uma envolvência cristalina e revigorante.",
+                "Observa como o aroma transforma a perceção do teu próprio espaço.",
+                "Um porto seguro de calmaria no meio de uma semana preenchida.",
+                "Estás a criar um santuário de quiet luxury na tua envolvência.",
+                "Deixa que o eco do mar leve as últimas distrações mentais.",
+                "O ciclo encerra. O teu foco está restaurado e purificado."
+            ],
+            [
+                "Conecta-te com a origem. O mar de Vila Nova de Milfontes chama-te.",
+                "Sente o rasto sofisticado e fresco que começa a desenhar-se no ar.",
+                "Não penses no que tens de fazer a seguir. O foco está no presente.",
+                "A cera de soja premium liberta o aroma de forma limpa e constante.",
+                "Imagina uma caminhada matinal na praia deserta, sem rumo.",
+                "O teu bem-estar merece estes oitenta segundos de exclusividade.",
+                "A atmosfera torna-se mais leve, requintada e profundamente serena.",
+                "Nota como a combinação salina traz clareza aos teus objetivos.",
+                "Estás no controlo do teu tempo. Sente o poder desse privilégio.",
+                "Ritual terminado. O aroma permanece como a tua assinatura hoje."
+            ],
+            [
+                "Deixa o aroma ditar as regras nos próximos momentos.",
+                "Notas marinhas puras que despertam a tua essência interior.",
+                "O calor e a frescura coabitam perfeitamente neste cubo de cera.",
+                "Permite que o teu pensamento se dissipe na névoa salina.",
+                "Uma experiência sensorial desenhada para quem aprecia os detalhes.",
+                "O ritmo abranda. A tua mente acompanha a calmaria da costa.",
+                "Sente o requinte de um final de tarde na Comporta sem sair daí.",
+                "Cada inspiração enche o teu corpo de nova energia criativa.",
+                "O Salitre cura. O mar acalma. O teu espaço abraça-te.",
+                "Estás pronto para o que vier. Leva esta frescura contigo."
+            ],
+            [
+                "Desliga o ruído. Sintoniza a frequência da coleção MARÉ.",
+                "O aroma a sal e sol evoca dias felizes e mentes descansadas.",
+                "A beleza do minimalismo está em apreciar este exato segundo.",
+                "A madeira flutuante ancora o teu corpo à terra enquanto a mente voa.",
+                "Sente a subtileza aristocrática deste aroma europeu premium.",
+                "A tua respiração é a única âncora necessária neste momento.",
+                "A cera de soja brilha, transportando a essência do Atlântico.",
+                "Afasta as nuvens mentais. Deixa apenas entrar a luz do sul.",
+                "A tua casa cheira a exclusividade, design e cuidado artesanal.",
+                "Finalizado. O teu espaço agora é um manifesto de tranquilidade."
+            ],
+            [
+                "Dá as boas-vindas à leveza. O aroma a SALITRE abre o caminho.",
+                "Sente a maresia a tocar-te levemente no rosto de forma imaginária.",
+                "Os teus sentidos merecem esta pausa editorial requintada.",
+                "Esquece as notificações do telemóvel. O foco é a tua paz.",
+                "A sofisticação do aroma reflete a escolha consciente que fizeste hoje.",
+                "O tempo expande-se quando paramos para contemplar o invisível.",
+                "O sal marinho atua como um escudo purificador para o teu dia.",
+                "Desfruta do calor reconfortante que emana deste ritual olfativo.",
+                "A mente desacelerou com sucesso. Sente a clareza conquistada.",
+                "Ritual fixado. Move-te agora com elegância e foco renovado."
+            ],
+            [
+                "O último ritual inicia. Entrega-te totalmente a esta brisa.",
+                "O aroma a madeira e sal evoca a intemporalidade da natureza.",
+                "Sente o orgulho e a energia do fabrico artesanal.",
+                "Deixa que a assinatura olfativa da Moulage defina o teu humor.",
+                "Estás num refúgio privado onde o luxo é o teu próprio silêncio.",
+                "Cada segundo que passa deixa a tua mente mais limpa e focada.",
+                "A frescura marítima desperta os teus melhores pensamentos.",
+                "A fusão olfativa atingiu o ápice. Desfruta do aroma pleno.",
+                "A paz que procuravas já está instalada no teu ambiente.",
+                "Fim da jornada sensorial. Regressa ao mundo com a alma lavada."
+            ]
+        ];
+
+        const closingMessages = [
+            "Pronto! O teu espaço está oficialmente com cheiro a 'CEO de férias na Comporta'. Podes voltar ao trabalho, mas com classe renovada.",
+            "Ritual concluído com sucesso. O resto da tua casa pode continuar a esperar, mas o teu café provavelmente está a arrefecer. Vai lá!",
+            "Feito! O stress foi formalmente despejado do teu escritório. Desfruta deste novo ecossistema premium de foco.",
+            "Parabéns, sobreviveu a 80 segundos sem olhar para as notificações. O teu prémio é este aroma incrível. Força no teu dia!",
+            "Maresia ativada no ambiente. Se alguém te vier chatear agora, diz que estás numa reunião executiva com o teu bem-estar.",
+            "O ritual terminou, mas o aroma a Vila Nova de Milfontes fica contigo. Vai conquistar o mundo com esta postura requintada.",
+            "Respiração alinhada, ambiente purificado. Está na hora de voltar ao mundo real, mas mantém essa calma de quem tem a vida resolvida.",
+            "Feito. A tua mente agradece o reset e a Moulage garante o estilo. Agora vai lá fora mostrar como se trabalha com elegância.",
+            "Ritual encerrado. O aroma a salitre colou na tua envolvência. Estás oficialmente autorizado a ser incrivelmente produtivo e calmo.",
+            "Concluído! O teu ambiente passou no teste de sofisticação olfativa. Regressa ao teu dia com o foco e a nitidez do oceano."
+        ];
+
+        // --- CONTROLO DOS MEIOS DE COMUNICAÇÃO ---
+        const videoSrc = "https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c054ba274bb81c32273bcaf39f400782&profile_id=165&oauth2_token_id=57447761";
+        const imgSrc1 = "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200";
+        const imgSrc2 = "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1200";
+
+        const audio = document.getElementById('audio-player');
+        const heroBlock = document.getElementById('hero-block');
+        const playerBlock = document.getElementById('player-block');
+        const timerDisplay = document.getElementById('timer-display');
+        const messageDisplay = document.getElementById('message-display');
+        const closingMessageDisplay = document.getElementById('closing-message-display');
+        const pauseBtn = document.getElementById('pause-btn');
+        const endModal = document.getElementById('end-modal');
+
+        const pVideo = document.getElementById('player-video');
+        const pImg1 = document.getElementById('player-img1');
+        const pImg2 = document.getElementById('player-img2');
+
+        let countdownInterval;
+        let phraseInterval;
+        let bgInterval;
+        
+        let totalTime = 80; 
+        let isPlaying = false;
+        let currentRitualPhrases = [];
+        let phraseIndex = 0;
+        let bgIndex = 0;
+        let completedRituals = [];
+
+        function activateRitual() {
+            pVideo.src = videoSrc; pVideo.play().catch(()=>{});
+            pImg1.src = imgSrc1; pImg2.src = imgSrc2;
+
+            if (completedRituals.length === ritualsData.length) completedRituals = [];
+            let availableIndexes = ritualsData.map((_, i) => i).filter(i => !completedRituals.includes(i));
+            let chosenIndex = availableIndexes[Math.floor(Math.random() * availableIndexes.length)];
+            completedRituals.push(chosenIndex);
+            
+            currentRitualPhrases = ritualsData[chosenIndex];
+            phraseIndex = 0;
+            totalTime = 80;
+
+            heroBlock.style.display = 'none';
+            playerBlock.classList.add('active');
+            window.scrollTo(0,0);
+
+            startAudioAndTimer();
+            runBackgroundLoop();
+        }
+
+        function startAudioAndTimer() {
+            audio.volume = 0.5;
+            audio.play().then(() => {
+                isPlaying = true;
+                pauseBtn.innerText = "Pausar";
+            }).catch(e => {
+                isPlaying = true;
+                pauseBtn.innerText = "Pausar";
+            });
+
+            updatePhrase();
+
+            clearInterval(countdownInterval);
+            countdownInterval = setInterval(() => {
+                if (totalTime <= 0) {
+                    endRitual();
+                } else {
+                    totalTime--;
+                    displayTime(totalTime);
+                }
+            }, 1000);
+
+            clearInterval(phraseInterval);
+            phraseInterval = setInterval(() => {
+                phraseIndex++;
+                if (phraseIndex < currentRitualPhrases.length) {
+                    updatePhrase();
+                }
+            }, 8000);
+        }
+
+        function updatePhrase() {
+            messageDisplay.classList.remove('show');
+            setTimeout(() => {
+                messageDisplay.innerText = currentRitualPhrases[phraseIndex];
+                messageDisplay.classList.add('show');
+            }, 600);
+        }
+
+        function runBackgroundLoop() {
+            const bgs = [pVideo, pImg1, pImg2];
+            
+            function rotate() {
+                bgs.forEach(b => b.classList.remove('visible'));
+                bgs[bgIndex].classList.add('visible');
+                bgIndex = (bgIndex + 1) % bgs.length;
+            }
+            
+            rotate();
+            clearInterval(bgInterval);
+            bgInterval = setInterval(rotate, 12000);
+        }
+
+        function togglePlayback() {
+            if (isPlaying) {
+                audio.pause();
+                pVideo.pause();
+                clearInterval(countdownInterval);
+                clearInterval(phraseInterval);
+                clearInterval(bgInterval);
+                pauseBtn.innerText = "Retomar";
+                isPlaying = false;
+            } else {
+                pVideo.play().catch(()=>{});
+                startAudioAndTimer();
+                runBackgroundLoop();
+            }
+        }
+
+        function displayTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainderSeconds = seconds % 60;
+            timerDisplay.innerText = `${minutes < 10 ? '0' : ''}${minutes}:${remainderSeconds < 10 ? '0' : ''}${remainderSeconds}`;
+        }
+
+        function endRitual() {
+            clearInterval(countdownInterval);
+            clearInterval(phraseInterval);
+            clearInterval(bgInterval);
+            audio.pause();
+            audio.currentTime = 0;
+            pVideo.pause();
+
+            closingMessageDisplay.innerText = closingMessages[Math.floor(Math.random() * closingMessages.length)];
+            endModal.classList.add('active');
+        }
+
+        function returnToHome() {
+            endModal.classList.remove('active');
+            playerBlock.classList.remove('active');
+            heroBlock.style.display = 'flex';
+            window.scrollTo(0,0);
+            
+            totalTime = 80;
+            displayTime(totalTime);
+            messageDisplay.innerText = "";
+            pauseBtn.innerText = "Pausar";
+            isPlaying = false;
+        }
+
+        function revealElements() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 50) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', revealElements);
+        window.addEventListener('DOMContentLoaded', revealElements);
+    </script>
+</body>
+</html>
