@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Moulage Parfums — SALITRE Ritual</title>
     
+    <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Manrope:wght@300;500&display=swap" rel="stylesheet">
@@ -16,7 +17,6 @@
             --sage: #1A4D3F;
             --linen: #F8F5F0;
             --champagne: #C5A880;
-            --slate-blue: #6B8E9B;
             --font-serif: 'Cormorant Garamond', serif;
             --font-sans: 'Manrope', sans-serif;
         }
@@ -109,7 +109,7 @@
         }
 
         /* =========================================================
-           0. TELA DE ENTRADA MISTERIOSA (DESBLOQUEIO DE ÁUDIO)
+           0. TELA DE ENTRADA MISTERIOSA
            ========================================================= */
         #gate-overlay {
             position: fixed;
@@ -169,25 +169,14 @@
             object-fit: cover;
             z-index: 1;
         }
-        .hero-texture {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=100');
-            opacity: 0.08;
-            z-index: 2;
-            pointer-events: none;
-        }
         .hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--emerald);
-            opacity: 0.45;
+            background: #000000;
+            opacity: 0.55; /* Camada escura para destacar as frases */
             z-index: 3;
         }
 
@@ -228,14 +217,14 @@
         }
 
         /* =========================================================
-           2. PLAYER "MARÉ CHEIA" - IMERSIVO FULLSCREEN
+           2. PLAYER IMERSIVO SEM BOLA VERDE
            ========================================================= */
         .player-section {
             display: none; 
             position: relative;
             width: 100%;
             height: 100vh;
-            background: var(--emerald);
+            background: #000000;
             text-align: center;
             overflow: hidden;
             z-index: 10;
@@ -260,7 +249,7 @@
             transition: opacity 1.5s ease-in-out;
         }
         .player-bg.visible {
-            opacity: 0.25; 
+            opacity: 0.35; /* Camada sutil das mídias ao fundo */
         }
 
         .player-content {
@@ -270,62 +259,32 @@
             width: 100%;
         }
 
-        .pulse-container {
-            position: relative;
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 30px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .pulse-circle {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: var(--champagne);
-            border-radius: 50%;
-            opacity: 0.15;
-        }
-        .pulse-circle.animating {
-            animation: oceanPulse 3.5s infinite ease-in-out;
-        }
-        .pulse-core {
-            width: 50px;
-            height: 50px;
-            background: var(--champagne);
-            border-radius: 50%;
-            opacity: 0.8;
-        }
-
-        @keyframes oceanPulse {
-            0% { transform: scale(1); opacity: 0.15; }
-            50% { transform: scale(1.4); opacity: 0.4; }
-            100% { transform: scale(1); opacity: 0.15; }
-        }
+        /* BOLA VERDE REMOVIDA DAQUI */
 
         .player-timer {
             font-family: var(--font-serif);
-            font-size: 54px;
+            font-size: 64px;
             color: var(--linen);
-            margin-bottom: 20px;
+            margin-bottom: 40px;
             font-weight: 300;
             letter-spacing: 0.05em;
         }
 
         .ritual-text-container {
-            min-height: 120px;
+            min-height: 140px;
             margin-bottom: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 0 10px;
         }
         .ritual-message {
             font-family: var(--font-serif);
             font-style: italic;
-            font-size: 24px;
+            font-size: 26px;
             color: var(--linen);
-            line-height: 1.6;
+            line-height: 1.7;
+            text-shadow: 0px 2px 10px rgba(0,0,0,0.8); /* Destaca totalmente a frase */
             opacity: 0;
             transform: translateY(10px);
             transition: opacity 0.6s ease, transform 0.6s ease;
@@ -362,7 +321,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(11, 45, 36, 0.95);
+            background: rgba(0, 0, 0, 0.95);
             z-index: 100;
             justify-content: center;
             align-items: center;
@@ -397,7 +356,7 @@
         }
 
         /* =========================================================
-           3. O RITUAL SECÇÕES PADRÃO
+           SECCÕES PADRÃO
            ========================================================= */
         .ritual-section {
             background: var(--emerald);
@@ -436,11 +395,7 @@
             object-fit: cover;
             transition: transform 1.2s ease;
         }
-        .ritual-card:hover .ritual-img-wrapper img { transform: scale(1.04); }
 
-        /* =========================================================
-           4. O SEGREDO & RECOMPRA
-           ========================================================= */
         .secret-section {
             background: var(--linen);
             padding: 120px 24px;
@@ -508,19 +463,21 @@
 </head>
 <body>
 
+    <!-- 0. TELA DE ENTRADA MISTERIOSA (O gatilho definitivo de áudio) -->
     <div id="gate-overlay">
         <button class="gate-btn" onclick="desbloquearAudioPagina()">Descobrir</button>
     </div>
 
+    <!-- REPRODUTOR DE ÁUDIO LIVRE -->
     <audio id="audio-player" loop playsinline>
         <source src="musica1.mp3" type="audio/mpeg">
     </audio>
 
+    <!-- 1. HERO - IMERSÃO -->
     <section class="hero-section" id="hero-block">
-        <video class="hero-media" id="hero-video" loop playsinline muted poster="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=640">
+        <video class="hero-media" id="hero-video" loop playsinline muted>
             <source src="vídeos/marguerita.mp4" type="video/mp4">
         </video>
-        <div class="hero-texture"></div>
         <div class="hero-overlay"></div>
         
         <div class="hero-content">
@@ -540,18 +497,16 @@
         </div>
     </section>
 
+    <!-- 2. PLAYER RITUAL INTERATIVO SEM BOLA VERDE -->
     <section class="player-section" id="player-block">
         <video class="player-bg" id="player-video" muted loop playsinline></video>
         <img class="player-bg" id="player-img1" src="" alt="Ritual Atmosphere">
         <img class="player-bg" id="player-img2" src="" alt="Ritual Space">
         
-        <div class="hero-overlay" style="opacity: 0.65;"></div>
+        <div class="hero-overlay" style="opacity: 0.75;"></div> <!-- Camada escura robusta para ler as frases perfeitamente -->
 
         <div class="player-content">
-            <div class="pulse-container">
-                <div class="pulse-circle animating"></div>
-                <div class="pulse-core"></div>
-            </div>
+            <!-- BOLA VERDE ELIMINADA DAQUI -->
             <div class="player-timer" id="timer-display">01:20</div>
             
             <div class="ritual-text-container">
@@ -562,6 +517,7 @@
         </div>
     </section>
 
+    <!-- MODAL DE ENCERRAMENTO -->
     <div class="modal-overlay" id="end-modal">
         <div class="modal-box">
             <h3>Ritual Concluído.</h3>
@@ -570,6 +526,7 @@
         </div>
     </div>
 
+    <!-- 3. O RITUAL SECÇÕES PADRÃO -->
     <section class="ritual-section reveal">
         <h2>O Ritual SALITRE</h2>
         <div class="ritual-grid">
@@ -592,11 +549,12 @@
                 <div class="ritual-img-wrapper">
                     <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=500" alt="Vinho">
                 </div>
-                <p><strong>Desligue.</strong> 8 minutos para si. O resto da casa pode esperar.</p>
+                <p><strong>Desligue.</strong> 8 minutes para si. O resto da casa pode esperar.</p>
             </div>
         </div>
     </section>
 
+    <!-- 4. O SEGREDO -->
     <section class="secret-section reveal">
         <div class="secret-container">
             <h3 class="secret-title">Segredo 001/200</h3>
@@ -607,6 +565,7 @@
         </div>
     </section>
 
+    <!-- 5. RECOMPRA -->
     <section class="cta-section reveal">
         <div class="cta-container">
             <h2>A Maré acaba.</h2>
@@ -624,7 +583,7 @@
     </footer>
 
     <script>
-        // --- BASE DE DADOS DE RITUAIS (10 RITUAIS x 10 FRASES = 100 FRASES EXCLUSIVAS) ---
+        // --- BASE DE DADOS DE RITUAIS ---
         const ritualsData = [
             [
                 "Inspira profundamente. O aroma a salitre começa a tomar conta do espaço.",
@@ -649,119 +608,15 @@
                 "Sente a frescura salina a purificar a energia em teu redor.",
                 "O aroma a maresia cura o cansaço que a mente acumulou hoje.",
                 "O teu templo pessoal está pronto. Leva este foco contigo."
-            ],
-            [
-                "Bem-vindo à tua pausa editorial. O design do momento é teu.",
-                "O wax melt derrete lentamente, tal como as tuas preocupações atuais.",
-                "Uma lufada de ar fresco entra pela divisão. É a coleção MARÉ.",
-                "Visualiza a imensidão do oceano Atlântico. Tu és livre como ele.",
-                "Deixa que a envolvência da madeira flutuante te abrace o espírito.",
-                "Nada de pressas. O tempo aqui foi desenhado à tua medida.",
-                "Sente a textura do linho imaginário na tua pele. Conforto puro.",
-                "A harmonia perfeita entre o sol e o sal acontece agora na tua sala.",
-                "Faltam poucos passos para concluíres este alinhamento interior.",
-                "Abraça a calmaria. O teu dia ganhou uma nova perspetiva premium."
-            ],
-            [
-                "Inicia o desapego do mundo digital. Foca-te no teu sentido olfativo.",
-                "O aroma a SALITRE evoca sofisticação minimalista. Sente-a.",
-                "Deixa a mente flutuar como um pedaço de madeira no mar calmo.",
-                "Respira a autenticidade de um produto feito artesanalmente para ti.",
-                "As notas de topo abraçam o espaço. Um toque selvagem e luxuoso.",
-                "Permite-te não produzir nada nestes minutos. Apenas existir.",
-                "A energia da costa portuguesa preenche cada canto da tua casa.",
-                "O aroma acalma os pensamentos mais agitados. Confia no ritual.",
-                "A maré está cheia de serenidade. Sente a subida gradual da paz.",
-                "Ritual fixado com sucesso. O teu ambiente mudou de nível."
-            ],
-            [
-                "Primeiro passo: liberta toda a tensão do teu maxilar.",
-                "A Moulage Parfums trouxe o oceano até à tua mesa de cabeceira.",
-                "A simplicidade é o último grau da sofisticação. Sente este aroma.",
-                "As ondas invisíveis quebram suavemente contra o teu stress diário.",
-                "A flor de sal traz uma envolvência cristalina e revigorante.",
-                "Observa como o aroma transforma a perceção do teu próprio espaço.",
-                "Um porto seguro de calmaria no meio de uma semana preenchida.",
-                "Estás a criar um santuário de quiet luxury na tua envolvência.",
-                "Deixa que o eco do mar leve as últimas distrações mentais.",
-                "O ciclo encerra. O teu foco está restaurado e purificado."
-            ],
-            [
-                "Conecta-te com a origem. O mar de Vila Nova de Milfontes chama-te.",
-                "Sente o rasto sofisticado e fresco que começa a desenho no ar.",
-                "Não penses no que tens de fazer a seguir. O foco está no presente.",
-                "A cera de soja premium liberta o aroma de forma limpa e constante.",
-                "Imagina uma caminhada matinal na praia deserta, sem rumo.",
-                "O teu bem-estar merece estes oitenta segundos de exclusividade.",
-                "A atmosfera torna-se mais leve, requintada e profundamente serena.",
-                "Nota como a combinação salina traz clareza aos teus objetivos.",
-                "Estás no controlo do teu tempo. Sente o poder desse privilégio.",
-                "Ritual terminado. O aroma permanece como a tua assinatura hoje."
-            ],
-            [
-                "Deixa o aroma ditar as regras nos próximos momentos.",
-                "Notas marinhas puras que despertam a tua essência interior.",
-                "O calor e a frescura coabitam perfeitamente neste cubo de cera.",
-                "Permite que o teu pensamento se dissipe na névoa salina.",
-                "Uma experiência sensorial desenhada para quem aprecia os detalhes.",
-                "O ritmo abranda. A tua mente acompanha a calmaria da costa.",
-                "Sente o requinte de um final de tarde na Comporta sem sair daí.",
-                "Cada inspiração enche o teu corpo de nova energia criativa.",
-                "O Salitre cura. O mar acalma. O teu espaço abraça-te.",
-                "Estás pronto para o que vier. Leva esta frescura contigo."
-            ],
-            [
-                "Desliga o ruído. Sintoniza a frequência da coleção MARÉ.",
-                "O aroma a sal e sol evoca dias felizes e mentes descansadas.",
-                "A beleza do minimalismo está em apreciar este exato segundo.",
-                "A madeira flutuante ancora o teu corpo à terra enquanto a mente voa.",
-                "Sente a subtileza aristocrática deste aroma europeu premium.",
-                "A tua respiração é a única âncora necessária neste momento.",
-                "A cera de soja brilha, transportando a essência do Atlântico.",
-                "Afasta as nuvens mentais. Deixa apenas entrar a luz do sul.",
-                "A tua casa cheira a exclusividade, design e cuidado artesanal.",
-                "Finalizado. O teu espaço agora é um manifesto de tranquilidade."
-            ],
-            [
-                "Dá as boas-vindas à leveza. O aroma a SALITRE abre o caminho.",
-                "Sente a maresia a tocar-te levemente no rosto de forma imaginária.",
-                "Os teus sentidos merecem esta pausa editorial requintada.",
-                "Esquece as notificações do telemóvel. O foco é a tua paz.",
-                "A sofisticação do aroma reflete a escolha consciente que fizeste hoje.",
-                "O tempo expande-se quando paramos para contemplar o invisível.",
-                "O sal marinho atua como um escudo purificador para o teu dia.",
-                "Desfruta do calor reconfortante que emana deste ritual olfativo.",
-                "A mente desacelerou com sucesso. Sente a clareza conquistada.",
-                "Ritual fixado. Move-te agora com elegância e foco renovado."
-            ],
-            [
-                "O último ritual inicia. Entrega-te totalmente a esta brisa.",
-                "O aroma a madeira e sal evoca a intemporalidade da natureza.",
-                "Sente o orgulho e a energia do fabrico artesanal.",
-                "Deixa que a assinatura olfativa da Moulage defina o teu humor.",
-                "Estás num refúgio privado onde o luxo é o teu próprio silêncio.",
-                "Cada segundo que passa deixa a tua mente mais limpa e focada.",
-                "A frescura marítima desperta os teus melhores pensamentos.",
-                "A fusão olfativa atingiu o ápice. Desfruta do aroma pleno.",
-                "A paz que procuravas já está instalada no teu ambiente.",
-                "Fim da jornada sensorial. Regressa ao mundo com a alma lavada."
             ]
         ];
 
         const closingMessages = [
             "Pronto! O teu espaço está oficialmente com cheiro a 'CEO de férias na Comporta'. Podes voltar ao trabalho, mas com classe renovada.",
-            "Ritual concluído com sucesso. O resto da tua casa pode continuar a esperar, mas o teu café provavelmente está a arrefecer. Vai lá!",
-            "Feito! O stress foi formalmente despejado do teu escritório. Desfruta deste novo ecossistema premium de foco.",
-            "Parabéns, sobreviveu a 80 segundos sem olhar para as notificações. O teu prémio é este aroma incrível. Força no teu dia!",
-            "Maresia ativada no ambiente. Se alguém te vier chatear agora, diz que estás numa reunião executiva com o teu bem-estar.",
-            "O ritual terminou, mas o aroma a Vila Nova de Milfontes fica contigo. Vai conquistar o mundo com esta postura requintada.",
-            "Respiração alinhada, ambiente purificado. Está na hora de voltar ao mundo real, mas mantém essa calma de quem tem a vida resolvida.",
-            "Feito. A tua mente agradece o reset e a Moulage garante o estilo. Agora vai lá fora mostrar como se trabalha com elegância.",
-            "Ritual encerrado. O aroma a salitre colou na tua envolvência. Estás oficialmente autorizado a ser incrivelmente produtivo e calmo.",
-            "Concluído! O teu ambiente passou no teste de sofisticação olfativa. Regressa ao teu dia com o foco e a nitidez do oceano."
+            "Ritual concluído com sucesso. O resto da tua casa pode continuar a esperar. Vai lá!",
+            "Feito! O stress foi formalmente despejado do teu escritório. Desfruta deste novo ecossistema."
         ];
 
-        // --- CONTROLO DOS MEIOS DE COMUNICAÇÃO (Apontados para os teus arquivos locais) ---
         const videoSrc = "vídeos/marguerita.mp4";
         const imgSrc1 = "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200";
         const imgSrc2 = "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1200";
@@ -792,13 +647,19 @@
         let bgIndex = 0;
         let completedRituals = [];
 
-        // PASSO 0: Destranca o áudio e carrega o primeiro vídeo em loop silencioso no fundo
+        // PASSO 0: O clique em DESCOBRIR força o início e destranca o player de áudio imediatamente
         function desbloquearAudioPagina() {
             gateOverlay.classList.add('hidden');
             heroVideo.play().catch(()=>{});
+            
+            // Ativa o áudio silenciosamente e prepara para tocar de verdade depois
+            audio.play().then(() => {
+                audio.pause();
+                audio.currentTime = 0;
+            }).catch(()=>{});
         }
 
-        // PASSO 1: Ativa o leitor interativo imersivo
+        // PASSO 1: Inicia o cronómetro e liberta a música
         function activateRitual() {
             pVideo.src = videoSrc; 
             pVideo.play().catch(()=>{});
@@ -823,13 +684,14 @@
         }
 
         function startAudioAndTimer() {
-            audio.volume = 0.5;
+            // REMOVIDO QUALQUER MUTE OU AMORTECIMENTO DO ÁUDIO
+            audio.volume = 1.0; 
             audio.play().then(() => {
                 isPlaying = true;
                 pauseBtn.innerText = "Pausar";
             }).catch(e => {
+                console.log("Falha ao tocar música:", e);
                 isPlaying = true;
-                pauseBtn.innerText = "Pausar";
             });
 
             updatePhrase();
