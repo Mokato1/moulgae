@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Moulage Parfums — SALITRE Ritual</title>
     
-    <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Manrope:wght@300;500&display=swap" rel="stylesheet">
@@ -176,7 +175,7 @@
             width: 100%;
             height: 100%;
             background: #000000;
-            opacity: 0.55; /* Camada escura para destacar as frases */
+            opacity: 0.6; /* Camada escura sutil */
             z-index: 3;
         }
 
@@ -217,7 +216,7 @@
         }
 
         /* =========================================================
-           2. PLAYER IMERSIVO SEM BOLA VERDE
+           2. PLAYER IMERSIVO SÓ COM VÍDEOS/IMAGENS E TEXTO
            ========================================================= */
         .player-section {
             display: none; 
@@ -249,23 +248,21 @@
             transition: opacity 1.5s ease-in-out;
         }
         .player-bg.visible {
-            opacity: 0.35; /* Camada sutil das mídias ao fundo */
+            opacity: 0.45; /* Destaca as praias e imagens ao fundo sob o tom escuro */
         }
 
         .player-content {
             position: relative;
             z-index: 5;
-            max-width: 600px;
+            max-width: 650px;
             width: 100%;
         }
-
-        /* BOLA VERDE REMOVIDA DAQUI */
 
         .player-timer {
             font-family: var(--font-serif);
             font-size: 64px;
             color: var(--linen);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             font-weight: 300;
             letter-spacing: 0.05em;
         }
@@ -276,7 +273,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0 10px;
+            padding: 0 20px;
         }
         .ritual-message {
             font-family: var(--font-serif);
@@ -284,10 +281,10 @@
             font-size: 26px;
             color: var(--linen);
             line-height: 1.7;
-            text-shadow: 0px 2px 10px rgba(0,0,0,0.8); /* Destaca totalmente a frase */
+            text-shadow: 0px 2px 15px rgba(0,0,0,0.9); /* Máxima legibilidade */
             opacity: 0;
             transform: translateY(10px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
         .ritual-message.show {
             opacity: 1;
@@ -393,7 +390,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 1.2s ease;
         }
 
         .secret-section {
@@ -463,20 +459,17 @@
 </head>
 <body>
 
-    <!-- 0. TELA DE ENTRADA MISTERIOSA (O gatilho definitivo de áudio) -->
     <div id="gate-overlay">
         <button class="gate-btn" onclick="desbloquearAudioPagina()">Descobrir</button>
     </div>
 
-    <!-- REPRODUTOR DE ÁUDIO LIVRE -->
     <audio id="audio-player" loop playsinline>
-        <source src="musica1.mp3" type="audio/mpeg">
+        <source src="áudios/música1.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- 1. HERO - IMERSÃO -->
     <section class="hero-section" id="hero-block">
         <video class="hero-media" id="hero-video" loop playsinline muted>
-            <source src="vídeos/marguerita.mp4" type="video/mp4">
+            <source src="vídeos/praia1.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
         
@@ -497,16 +490,16 @@
         </div>
     </section>
 
-    <!-- 2. PLAYER RITUAL INTERATIVO SEM BOLA VERDE -->
     <section class="player-section" id="player-block">
         <video class="player-bg" id="player-video" muted loop playsinline></video>
         <img class="player-bg" id="player-img1" src="" alt="Ritual Atmosphere">
         <img class="player-bg" id="player-img2" src="" alt="Ritual Space">
+        <img class="player-bg" id="player-img3" src="" alt="Ritual Vibe">
+        <img class="player-bg" id="player-img4" src="" alt="Ritual Art">
         
-        <div class="hero-overlay" style="opacity: 0.75;"></div> <!-- Camada escura robusta para ler as frases perfeitamente -->
+        <div class="hero-overlay" style="opacity: 0.75;"></div>
 
         <div class="player-content">
-            <!-- BOLA VERDE ELIMINADA DAQUI -->
             <div class="player-timer" id="timer-display">01:20</div>
             
             <div class="ritual-text-container">
@@ -517,7 +510,6 @@
         </div>
     </section>
 
-    <!-- MODAL DE ENCERRAMENTO -->
     <div class="modal-overlay" id="end-modal">
         <div class="modal-box">
             <h3>Ritual Concluído.</h3>
@@ -526,7 +518,6 @@
         </div>
     </div>
 
-    <!-- 3. O RITUAL SECÇÕES PADRÃO -->
     <section class="ritual-section reveal">
         <h2>O Ritual SALITRE</h2>
         <div class="ritual-grid">
@@ -549,12 +540,11 @@
                 <div class="ritual-img-wrapper">
                     <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=500" alt="Vinho">
                 </div>
-                <p><strong>Desligue.</strong> 8 minutes para si. O resto da casa pode esperar.</p>
+                <p><strong>Desligue.</strong> 8 minutos para si. O resto da casa pode esperar.</p>
             </div>
         </div>
     </section>
 
-    <!-- 4. O SEGREDO -->
     <section class="secret-section reveal">
         <div class="secret-container">
             <h3 class="secret-title">Segredo 001/200</h3>
@@ -565,7 +555,6 @@
         </div>
     </section>
 
-    <!-- 5. RECOMPRA -->
     <section class="cta-section reveal">
         <div class="cta-container">
             <h2>A Maré acaba.</h2>
@@ -583,43 +572,34 @@
     </footer>
 
     <script>
-        // --- BASE DE DADOS DE RITUAIS ---
+        // --- PHRASES DATA ---
         const ritualsData = [
             [
                 "Inspira profundamente. O aroma a salitre começa a tomar conta do espaço.",
                 "Deixa que a frescura do mar limpe os ruídos do teu dia de trabalho.",
                 "Sente o calor suave do difusor a libertar as primeiras notas marítimas.",
                 "Não há e-mails para responder nos próximos segundos. Só tu e o mar.",
-                "Imaginas as ondas a rebentar calmamente na costa da Comporta?",
+                "Feche os olhos. Este é o som da Comporta ao entardecer.",
                 "O aroma adensa-se. A madeira flutuante traz estabilidade ao momento.",
                 "Relaxa os ombros. Deixa que a brisa invisível faça o trabalho pesado.",
                 "Estás a criar uma memória olfativa premium. Saboreia-a.",
                 "O mundo lá fora continua a girar, mas tu escolheste parar aqui.",
                 "Prepara-te para regressar. O teu espaço está completamente renovado."
-            ],
-            [
-                "O ritual começou. Desliga o piloto automático por um breve instante.",
-                "O sal do Algarve funde-se com o calor. Sente a pureza da brisa.",
-                "Feche os olhos por três segundos. Escuta o silêncio por trás da música.",
-                "Cada molécula de cera libertada é um convite para desacelerar.",
-                "Estás no Alentejo, o sol está a pôr-se e a areia ainda está quente.",
-                "Acalma o ritmo da tua respiração. Acompanha o compasso do som.",
-                "Este momento é um luxo que te ofereces. Nada é mais importante agora.",
-                "Sente a frescura salina a purificar a energia em teu redor.",
-                "O aroma a maresia cura o cansaço que a mente acumulou hoje.",
-                "O teu templo pessoal está pronto. Leva este foco contigo."
             ]
         ];
 
         const closingMessages = [
-            "Pronto! O teu espaço está oficialmente com cheiro a 'CEO de férias na Comporta'. Podes voltar ao trabalho, mas com classe renovada.",
-            "Ritual concluído com sucesso. O resto da tua casa pode continuar a esperar. Vai lá!",
-            "Feito! O stress foi formalmente despejado do teu escritório. Desfruta deste novo ecossistema."
+            "Pronto! O teu espaço está oficialmente renovado. Podes voltar ao presente com classe.",
+            "Ritual concluído com sucesso. O resto do mundo pode continuar a esperar.",
+            "Feito! Desfruta deste novo ecossistema olfativo no teu espaço."
         ];
 
-        const videoSrc = "vídeos/marguerita.mp4";
-        const imgSrc1 = "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200";
-        const imgSrc2 = "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1200";
+        // MAPEAMENTO EXATO DAS TUAS PASTAS
+        const videoSrc = "vídeos/praia2.mp4";
+        const imgSrc1 = "imagens/imagem1.jpg";
+        const imgSrc2 = "imagens/imagem2.jpg";
+        const imgSrc3 = "imagens/imagem3.jpg";
+        const imgSrc4 = "imagens/imagem4.jpg";
 
         const audio = document.getElementById('audio-player');
         const heroBlock = document.getElementById('hero-block');
@@ -635,6 +615,8 @@
         const pVideo = document.getElementById('player-video');
         const pImg1 = document.getElementById('player-img1');
         const pImg2 = document.getElementById('player-img2');
+        const pImg3 = document.getElementById('player-img3');
+        const pImg4 = document.getElementById('player-img4');
 
         let countdownInterval;
         let phraseInterval;
@@ -645,33 +627,27 @@
         let currentRitualPhrases = [];
         let phraseIndex = 0;
         let bgIndex = 0;
-        let completedRituals = [];
 
-        // PASSO 0: O clique em DESCOBRIR força o início e destranca o player de áudio imediatamente
         function desbloquearAudioPagina() {
             gateOverlay.classList.add('hidden');
             heroVideo.play().catch(()=>{});
             
-            // Ativa o áudio silenciosamente e prepara para tocar de verdade depois
+            // Ativa o leitor e liberta o áudio para o browser
             audio.play().then(() => {
                 audio.pause();
                 audio.currentTime = 0;
             }).catch(()=>{});
         }
 
-        // PASSO 1: Inicia o cronómetro e liberta a música
         function activateRitual() {
             pVideo.src = videoSrc; 
             pVideo.play().catch(()=>{});
             pImg1.src = imgSrc1; 
             pImg2.src = imgSrc2;
+            pImg3.src = imgSrc3;
+            pImg4.src = imgSrc4;
 
-            if (completedRituals.length === ritualsData.length) completedRituals = [];
-            let availableIndexes = ritualsData.map((_, i) => i).filter(i => !completedRituals.includes(i));
-            let chosenIndex = availableIndexes[Math.floor(Math.random() * availableIndexes.length)];
-            completedRituals.push(chosenIndex);
-            
-            currentRitualPhrases = ritualsData[chosenIndex];
+            currentRitualPhrases = ritualsData[0];
             phraseIndex = 0;
             totalTime = 80;
 
@@ -684,13 +660,12 @@
         }
 
         function startAudioAndTimer() {
-            // REMOVIDO QUALQUER MUTE OU AMORTECIMENTO DO ÁUDIO
             audio.volume = 1.0; 
             audio.play().then(() => {
                 isPlaying = true;
                 pauseBtn.innerText = "Pausar";
             }).catch(e => {
-                console.log("Falha ao tocar música:", e);
+                console.log("Erro ao reproduzir áudio:", e);
                 isPlaying = true;
             });
 
@@ -724,7 +699,7 @@
         }
 
         function runBackgroundLoop() {
-            const bgs = [pVideo, pImg1, pImg2];
+            const bgs = [pVideo, pImg1, pImg2, pImg3, pImg4];
             
             function rotate() {
                 bgs.forEach(b => b.classList.remove('visible'));
@@ -734,7 +709,7 @@
             
             rotate();
             clearInterval(bgInterval);
-            bgInterval = setInterval(rotate, 12000);
+            bgInterval = setInterval(rotate, 10000);
         }
 
         function togglePlayback() {
