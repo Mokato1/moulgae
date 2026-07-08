@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Moulage Parfums — SALITRE Ritual</title>
     
+    <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Manrope:wght@300;500&display=swap" rel="stylesheet">
@@ -175,7 +176,7 @@
             width: 100%;
             height: 100%;
             background: #000000;
-            opacity: 0.6; /* Camada escura sutil */
+            opacity: 0.6;
             z-index: 3;
         }
 
@@ -216,7 +217,7 @@
         }
 
         /* =========================================================
-           2. PLAYER IMERSIVO SÓ COM VÍDEOS/IMAGENS E TEXTO
+           2. PLAYER IMERSIVO SEM CÍRCULOS CHATOS
            ========================================================= */
         .player-section {
             display: none; 
@@ -248,7 +249,7 @@
             transition: opacity 1.5s ease-in-out;
         }
         .player-bg.visible {
-            opacity: 0.45; /* Destaca as praias e imagens ao fundo sob o tom escuro */
+            opacity: 0.45;
         }
 
         .player-content {
@@ -281,7 +282,7 @@
             font-size: 26px;
             color: var(--linen);
             line-height: 1.7;
-            text-shadow: 0px 2px 15px rgba(0,0,0,0.9); /* Máxima legibilidade */
+            text-shadow: 0px 2px 15px rgba(0,0,0,0.9);
             opacity: 0;
             transform: translateY(10px);
             transition: opacity 0.8s ease, transform 0.8s ease;
@@ -353,7 +354,7 @@
         }
 
         /* =========================================================
-           SECCÕES PADRÃO
+           SECÇÕES DO DESIGN EDITADO
            ========================================================= */
         .ritual-section {
             background: var(--emerald);
@@ -459,17 +460,20 @@
 </head>
 <body>
 
+    <!-- 0. TELA DE ENTRADA CORRIGIDA (Garante interação inicial no mobile) -->
     <div id="gate-overlay">
         <button class="gate-btn" onclick="desbloquearAudioPagina()">Descobrir</button>
     </div>
 
+    <!-- REPRODUTOR DE ÁUDIO CORRIGIDO (audios/musica1.mp3) -->
     <audio id="audio-player" loop playsinline>
-        <source src="áudios/música1.mp3" type="audio/mpeg">
+        <source src="audios/musica1.mp3" type="audio/mpeg">
     </audio>
 
+    <!-- 1. HERO - IMERSÃO -->
     <section class="hero-section" id="hero-block">
         <video class="hero-media" id="hero-video" loop playsinline muted>
-            <source src="vídeos/praia1.mp4" type="video/mp4">
+            <source src="videos/praia1.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
         
@@ -490,6 +494,7 @@
         </div>
     </section>
 
+    <!-- 2. PLAYER DO RITUAL (Fundo dinâmico baseado nas tuas imagens) -->
     <section class="player-section" id="player-block">
         <video class="player-bg" id="player-video" muted loop playsinline></video>
         <img class="player-bg" id="player-img1" src="" alt="Ritual Atmosphere">
@@ -510,6 +515,7 @@
         </div>
     </section>
 
+    <!-- MODAL DE ENCERRAMENTO -->
     <div class="modal-overlay" id="end-modal">
         <div class="modal-box">
             <h3>Ritual Concluído.</h3>
@@ -518,6 +524,7 @@
         </div>
     </div>
 
+    <!-- 3. O RITUAL SECÇÕES PADRÃO -->
     <section class="ritual-section reveal">
         <h2>O Ritual SALITRE</h2>
         <div class="ritual-grid">
@@ -526,7 +533,7 @@
                 <div class="ritual-img-wrapper">
                     <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=500" alt="Wax melt">
                 </div>
-                <p><strong>Acenda.</strong> Coloque um cubo de SALITRE no teu difusor. A base é sal marinho e madeira flutuante.</p>
+                <p><strong>Acenda.</strong> Coloque uma barra de SALITRE no teu difusor. A base é sal marinho e madeira flutuante.</p>
             </div>
             <div class="ritual-card">
                 <div class="ritual-num">02</div>
@@ -545,6 +552,7 @@
         </div>
     </section>
 
+    <!-- 4. O SEGREDO -->
     <section class="secret-section reveal">
         <div class="secret-container">
             <h3 class="secret-title">Segredo 001/200</h3>
@@ -555,6 +563,7 @@
         </div>
     </section>
 
+    <!-- 5. RECOMPRA -->
     <section class="cta-section reveal">
         <div class="cta-container">
             <h2>A Maré acaba.</h2>
@@ -572,7 +581,7 @@
     </footer>
 
     <script>
-        // --- PHRASES DATA ---
+        // --- TEXTOS IMERSIVOS ---
         const ritualsData = [
             [
                 "Inspira profundamente. O aroma a salitre começa a tomar conta do espaço.",
@@ -594,8 +603,8 @@
             "Feito! Desfruta deste novo ecossistema olfativo no teu espaço."
         ];
 
-        // MAPEAMENTO EXATO DAS TUAS PASTAS
-        const videoSrc = "vídeos/praia2.mp4";
+        // LINKS EXATOS DAS PASTAS SEM ACENTO
+        const videoSrc = "videos/praia2.mp4";
         const imgSrc1 = "imagens/imagem1.jpg";
         const imgSrc2 = "imagens/imagem2.jpg";
         const imgSrc3 = "imagens/imagem3.jpg";
@@ -628,11 +637,11 @@
         let phraseIndex = 0;
         let bgIndex = 0;
 
+        // Ativação obrigatória exigida pela Apple/Google para tocar som no clique
         function desbloquearAudioPagina() {
             gateOverlay.classList.add('hidden');
             heroVideo.play().catch(()=>{});
             
-            // Ativa o leitor e liberta o áudio para o browser
             audio.play().then(() => {
                 audio.pause();
                 audio.currentTime = 0;
